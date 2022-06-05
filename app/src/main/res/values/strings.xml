@@ -6,4 +6,16 @@
     <string name="signup">Signup</string>
     <string name="email_required">Email is required</string>
     <string name="password_required">Password  is required</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">SignUp</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="Enter_email">Enter email</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="Email">First name is required</string>
+    <string name="Last_name">Last name is required</string>
+    <string name="Password">password  is required</string>
+    <string name="Confirm_password">password  is required</string>
+    <string name="Enter_Email">First name is required</string>
 </resources>
