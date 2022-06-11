@@ -17,12 +17,14 @@
         />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fevHome"
+        android:id="@+id/fcvHome"
         android:name="dev.Chirii.workoutlog.planFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bnvHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:layout="@layout/fragment_plan" />
 </androidx.constraintlayout.widget.ConstraintLayout>
