@@ -73,15 +73,29 @@ class signupActivity : AppCompatActivity() {
         if (lastname.isBlank()){
             tilLastname.error = getString(R.string.Last_name)
         }
-        if (password.isBlank()){
+        if (password.isBlank()) {
             tilPassword.error = getString(R.string.Password)
         }
-        if (confirmPassword.isBlank()){
-            tilConfirmPassword.error = getString(R.string.Confirm_password)
+        if (password.length<8){
+            tilPassword.error = "Password is too short"
+        }
+        if (password.length>16){
+            tilPassword.error = "Password is too long"
         }
         if (email.isBlank()){
             tilEmail.error = getString(R.string.Enter_Email)
         }
+        if (confirmPassword.isBlank()){
+            tilConfirmPassword.error = getString(R.string.Confirm_password)
+        }
+        if (confirmPassword.length<8){
+            tilConfirmPassword.error = "Password is too short"
+        }
+        if (confirmPassword.length>16){
+            tilConfirmPassword.error = "Password is too long"
+        }
+
+
     }
 
 }
