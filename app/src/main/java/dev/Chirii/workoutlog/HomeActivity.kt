@@ -35,8 +35,7 @@ class HomeActivity : AppCompatActivity() {
 
                 }
                 R.id.profile -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fcvHome, ProfileFragment()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.fcvHome, ProfileFragment()).commit()
                     true
                 }
                 else -> false
