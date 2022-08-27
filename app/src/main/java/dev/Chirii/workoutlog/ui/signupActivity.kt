@@ -7,6 +7,7 @@ import com.google.android.material.textfield.TextInputLayout
 import dev.Chirii.workoutlog.R
 import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
 import dev.Chirii.workoutlog.databinding.ActivitySignupBinding
+import dev.Chirii.workoutlog.models.RegisterRequest
 
 class signupActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignupBinding
@@ -32,6 +33,8 @@ class signupActivity : AppCompatActivity() {
         var password = binding.etPassword.text.toString()
         var confirmPassword = binding.etConfirmPassword.text.toString()
         var email = binding.etEmail.text.toString()
+
+        var error = false
 
         if (firstname.isBlank()){
            binding.tilFirstname.error = getString(R.string.first_name)
@@ -62,6 +65,10 @@ class signupActivity : AppCompatActivity() {
         }
         if (confirmPassword.length>16){
             binding.tilConfirmPassword.error = "Password is too long"
+        }
+
+        if(!error){
+            val registerRequest = RegisterRequest(firstname,lastname,email,phoneNumber,password)
         }
 
     }
