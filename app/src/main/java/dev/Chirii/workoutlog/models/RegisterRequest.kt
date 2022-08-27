@@ -1,9 +1,11 @@
 package dev.Chirii.workoutlog.models
 
+import com.google.gson.annotations.SerializedName
+
 data class RegisterRequest(
-    var firstName : String,
-    var lastName : String,
-    var email : String,
-    var phoneNumber : String,
-    var Password : String,
+    @SerializedName("first_name")var firstName : String,
+    @SerializedName("last_name")var lastName : String,
+    @SerializedName("email")var email : String,
+    @SerializedName("password")var phoneNumber : String,
+    @SerializedName("phone_number")var Password : String,
 )
