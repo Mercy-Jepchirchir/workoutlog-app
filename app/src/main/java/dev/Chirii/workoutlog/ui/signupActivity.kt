@@ -1,13 +1,10 @@
-package dev.Chirii.workoutlog
+package dev.Chirii.workoutlog.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import dev.Chirii.workoutlog.R
 import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
 import dev.Chirii.workoutlog.databinding.ActivitySignupBinding
 
@@ -21,7 +18,7 @@ class signupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.tvLogin.setOnClickListener {
-            var intent = Intent(this,loginActivity::class.java)
+            var intent = Intent(this, loginActivity::class.java)
             startActivity(intent)
         }
         binding.btnSignup.setOnClickListener {
@@ -29,6 +26,7 @@ class signupActivity : AppCompatActivity() {
         }
     }
     fun validateSignup(){
+        var phoneNumber = binding.etPhoneNumber.text.toString()
         var firstname = binding.etFirstName.text.toString()
         var lastname = binding.etLastName.text.toString()
         var password = binding.etPassword.text.toString()
@@ -52,6 +50,9 @@ class signupActivity : AppCompatActivity() {
         }
         if (email.isBlank()){
             binding.tilEmail.error = getString(R.string.Enter_Email)
+        }
+        if (phoneNumber.isBlank()) {
+            binding.tilPhoneNumber.error = "phone number is required"
         }
         if (confirmPassword.isBlank()){
             binding.tilConfirmPassword.error = getString(R.string.Confirm_password)

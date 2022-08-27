@@ -1,11 +1,9 @@
-package dev.Chirii.workoutlog
+package dev.Chirii.workoutlog.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.Chirii.workoutlog.R
 import dev.Chirii.workoutlog.databinding.ActivityHomeBinding
-import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
 
 class HomeActivity : AppCompatActivity() {
   lateinit var binding:ActivityHomeBinding
