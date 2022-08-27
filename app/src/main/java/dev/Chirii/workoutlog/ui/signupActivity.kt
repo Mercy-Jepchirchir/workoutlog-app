@@ -3,6 +3,7 @@ package dev.Chirii.workoutlog.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import dev.Chirii.workoutlog.R
 import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
@@ -11,7 +12,9 @@ import dev.Chirii.workoutlog.models.RegisterRequest
 import dev.Chirii.workoutlog.models.RegisterResponse
 import dev.Chirii.workoutlog.retrofit.ApiClient
 import dev.Chirii.workoutlog.retrofit.ApiInterface
+import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 
 class signupActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignupBinding
@@ -82,6 +85,22 @@ class signupActivity : AppCompatActivity() {
         var request = apiclient.registerUser(registerRequest)
 
         request.enqueue(object : Callback<RegisterResponse>{
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                if(response.isSuccessful){
+                    var message = response.body()?.message
+                    Toast.makeText(baseContext,message,Toast.LENGTH_LONG).show()
+                    // intent to login
+                }
+                else{
+                    val error = response.errorBody()?.string()
+                    Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
+                }
+
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+            }
 
         })
 
