@@ -8,6 +8,10 @@ import dev.Chirii.workoutlog.R
 import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
 import dev.Chirii.workoutlog.databinding.ActivitySignupBinding
 import dev.Chirii.workoutlog.models.RegisterRequest
+import dev.Chirii.workoutlog.models.RegisterResponse
+import dev.Chirii.workoutlog.retrofit.ApiClient
+import dev.Chirii.workoutlog.retrofit.ApiInterface
+import retrofit2.Callback
 
 class signupActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignupBinding
@@ -70,6 +74,18 @@ class signupActivity : AppCompatActivity() {
         if(!error){
             val registerRequest = RegisterRequest(firstname,lastname,email,phoneNumber,password)
         }
+
+    }
+
+    fun makeRegistrationRequest(registerRequest: RegisterRequest){
+        var apiclient = ApiClient.buildApiClient(ApiInterface::class.java)
+        var request = apiclient.registerUser(registerRequest)
+
+        request.enqueue(object : Callback<RegisterResponse>{
+
+        })
+
+
 
     }
 
