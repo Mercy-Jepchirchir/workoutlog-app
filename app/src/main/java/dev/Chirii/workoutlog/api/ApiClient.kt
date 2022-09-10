@@ -1,4 +1,4 @@
-package dev.Chirii.workoutlog.retrofit
+package dev.Chirii.workoutlog.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

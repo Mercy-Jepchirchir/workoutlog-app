@@ -4,14 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.textfield.TextInputLayout
 import dev.Chirii.workoutlog.R
-import dev.Chirii.workoutlog.databinding.ActivityLoginBinding
 import dev.Chirii.workoutlog.databinding.ActivitySignupBinding
 import dev.Chirii.workoutlog.models.RegisterRequest
 import dev.Chirii.workoutlog.models.RegisterResponse
-import dev.Chirii.workoutlog.retrofit.ApiClient
-import dev.Chirii.workoutlog.retrofit.ApiInterface
+import dev.Chirii.workoutlog.api.ApiClient
+import dev.Chirii.workoutlog.api.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -75,7 +73,7 @@ class signupActivity : AppCompatActivity() {
         }
 
         if(!error){
-            val registerRequest = RegisterRequest(firstname,lastname,email,phoneNumber,password)
+            val registerRequest = RegisterRequest(firstname,lastname,email,password,phoneNumber)
             makeRegistrationRequest(registerRequest)
         }
 
@@ -90,6 +88,8 @@ class signupActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     var message = response.body()?.message
                     Toast.makeText(baseContext,message,Toast.LENGTH_LONG).show()
+                    startActivity(Intent(baseContext,loginActivity::class.java))
+
                     // intent to login
                 }
                 else{
